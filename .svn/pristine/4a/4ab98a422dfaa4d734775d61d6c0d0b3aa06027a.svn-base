@@ -1,0 +1,28 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [PT,L]
+RewriteCond $1 !^(index\.php|assets|uploads)
+
+# error di client
+# bad syntax
+ErrorDocument 400 /400
+# unautorized
+#ErrorDocument 401 /path/to/401.php
+# not used
+#ErrorDocument 402 /path/to/402.php
+# forbiden
+ErrorDocument 403 /403
+# not found
+ErrorDocument 404 /404
+ 
+ 
+# error di server
+# internal server error
+ErrorDocument 500 /500
+# not implemented
+#ErrorDocument 501 /path/to/501.php
+# overload
+#ErrorDocument 502 /path/to/502.php
+# gateway timeout
+ErrorDocument 503 /503
