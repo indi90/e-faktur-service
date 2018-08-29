@@ -20,16 +20,16 @@ class M_transaction extends CI_Model {
     }
     
     function addFaktur($data = ''){
-        $this->DB1 = $this->load->database('mssql_trial', TRUE);
-//        $this->DB1 = $this->load->database('mssql_common', TRUE);
+//        $this->DB1 = $this->load->database('mssql_trial', TRUE);
+        $this->DB1 = $this->load->database('mssql_common', TRUE);
         
         
         $this->DB1->insert('T_EFaktur', $data);
     }
     
     function checkFaktur($fakturno = ''){
-        $this->DB1 = $this->load->database('mssql_trial', TRUE);
-//        $this->DB1 = $this->load->database('mssql_common', TRUE);
+//        $this->DB1 = $this->load->database('mssql_trial', TRUE);
+        $this->DB1 = $this->load->database('mssql_common', TRUE);
         
         $q="select NOMOR_FAKTUR "
             . "from T_EFaktur "
@@ -40,8 +40,8 @@ class M_transaction extends CI_Model {
     }
     
     function getFaktur(){
-        $this->DB1 = $this->load->database('mssql_trial', TRUE);
-//        $this->DB1 = $this->load->database('mssql_common', TRUE);
+//        $this->DB1 = $this->load->database('mssql_trial', TRUE);
+        $this->DB1 = $this->load->database('mssql_common', TRUE);
         
         $q="select FM, KD_JENIS_TRANSAKSI, FG_PENGGANTI, NOMOR_FAKTUR, MASA_PAJAK, TAHUN_PAJAK, TANGGAL_FAKTUR, NPWP, NAMA, ALAMAT_LENGKAP, JUMLAH_DPP, JUMLAH_PPN, JUMLAH_PPNBM, IS_CREDITABLE, STATUS_FAKTUR
             from T_EFaktur
@@ -52,8 +52,8 @@ class M_transaction extends CI_Model {
     }
     
     function updateFaktur($data = ''){
-        $this->DB1 = $this->load->database('mssql_trial', TRUE);
-//        $this->DB1 = $this->load->database('mssql_common', TRUE);
+//        $this->DB1 = $this->load->database('mssql_trial', TRUE);
+        $this->DB1 = $this->load->database('mssql_common', TRUE);
         
         $this->DB1->where('IS_EMAIL', 0);
         $this->DB1->update('T_EFaktur', $data);
